@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi portafolio web | Diego Ernesto Saiz Perdomo</title>
+  <meta name="description"
+    content="Portfolio web de Diego Ernesto Saiz Perdomo, estudiante de Desarrollo de Aplicaciones Web.">
+  <meta name="theme-color" content="#0b0b14">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const pista = document.querySelector('.tech-track');
+      if (!pista) return;
+
+      const originales = [...pista.children];
+      const gap = parseFloat(getComputedStyle(pista).columnGap) || 0;
+      const anchoGrupo = pista.getBoundingClientRect().width + gap;
+      const copias = Math.ceil(window.innerWidth / anchoGrupo) + 1;
+
+      for (let i = 0; i < copias; i++) {
+        originales.forEach((li) => {
+          const copia = li.cloneNode(true);
+          copia.setAttribute('aria-hidden', 'true');
+          copia.querySelector('img').alt = '';
+          pista.appendChild(copia);
+        });
+      }
+      pista.style.setProperty('--shift', anchoGrupo + 'px');
+    });
+  </script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#sobre-mi" aria-label="Ir al inicio">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Diego Saiz
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#tecnologias">Tecnologías</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+      </ul>
+    </nav>
+
+    <a class="button button-outline" href="#contacto">Contacto</a>
+  </header>
+
+  <main>
+
+    <section id="sobre-mi" class="hero" aria-labelledby="titulo-nombre">
+      <article class="hero-text">
+        <hgroup>
+          <p class="badge">Mi portafolio web</p>
+          <h1 id="titulo-nombre">Diego Ernesto <span class="accent">Saiz Perdomo</span></h1>
+          <p class="role">Estudiante de Desarrollo de Aplicaciones Web</p>
+        </hgroup>
+
+        <p>
+          Disfruto aprendiendo nuevas tecnologías, explorando posibilidades y descubriendo cómo transformar ideas en
+          interfaces atractivas y fáciles de usar. Me considero una persona curiosa, constante y con muchas ganas de
+          seguir creciendo tanto personal como profesionalmente.
+        </p>
+
+        <a class="button button-primary" href="cv/Diego-Saiz-CV.pdf" download="Diego-Saiz-CV.pdf">Descarga mi CV</a>
+
+
+      </article>
+
+      <figure class="hero-photo">
+        <!-- Guarda tu foto en la carpeta img/ con el nombre foto.jpg -->
+        <img src="img/foto.webp" alt="Foto de Diego Ernesto Saiz Perdomo" width="420" height="420">
+      </figure>
+    </section>
+
+    <section id="tecnologias" class="panel" aria-labelledby="titulo-tecnologias">
+      <h2 id="titulo-tecnologias">Tecnologías que conozco</h2>
+
+      <div class="carousel">
+        <ul class="tech-track">
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML"
+              width="56" height="56"></li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="CSS"
+              width="56" height="56"></li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="Java"
+              width="56" height="56"></li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg"
+              alt="JavaScript" width="56" height="56"></li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="Git"
+              width="56" height="56"></li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg"
+              alt="PostgreSQL" width="56" height="56"></li>
+          <li><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" width="56" height="56"></li>
+          <li><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="56" height="56"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="formacion" class="panel" aria-labelledby="titulo-formacion">
+      <h2 id="titulo-formacion">Formación</h2>
+      <article class="card">
+        <h3>Bachiller Academico</h3>
+        <p>Título homologado en España</p>
+      </article>
+      <article class="card">
+        <h3>FP Superior en Desarrollo de Aplicaciones Web</h3>
+        <p>En curso</p>
+      </article>
+    </section>
+
+    <section id="proyectos" class="panel" aria-labelledby="titulo-proyectos">
+      <h2 id="titulo-proyectos">Proyectos</h2>
+
+      <ul class="project-grid">
+
+        <li>
+          <article class="coming-soon">
+            <span class="loader" aria-hidden="true"></span>
+            <h3>Coming <span class="accent">soon</span></h3>
+            <p>Estoy trabajando en mi primer proyecto. Muy pronto lo verás aquí.</p>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+
+    <section id="contacto" class="panel" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto">Contacto</h2>
+      <ul class="contact-list">
+        <li>
+          <a class="contact-icon" href="https://www.linkedin.com/in/diego-ernesto-saiz-perdomo-635b7a2a2"
+            target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <span class="contact-label">LinkedIn</span>
+        </li>
+        <li>
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </span>
+           <span class="contact-text">
+            <span class="contact-label">Email</span>
+            <span>diego11sp11@gmail.com</span>
+          </span>
+        </li>
+        <li>
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </span>
+          <span class="contact-text">
+            <span class="contact-label">Ubicación</span>
+            <span>Fuengirola, España</span>
+          </span>
+        </li>
+        <li>
+          <a class="contact-icon" href="https://github.com/DiegoSP28" target="_blank" rel="noopener noreferrer"
+            aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+          </a>
+          <span class="contact-label">GitHub</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Diego Ernesto Saiz Perdomo. Todos los derechos reservados.</p>
+    <a href="#sobre-mi">Volver arriba</a>
+  </footer>
+
+</body>
+
+</html>
